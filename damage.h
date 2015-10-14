@@ -2,22 +2,22 @@
 #define DAMAGE_H
 
 #include <vector>
-#include "value.h"
+#include "attackvalue.h"
 #include "effect.h"
 
 class Damage
 {
 public:
-    std::vector<Value> getValues() const;
+    std::vector<AttackValue> getValues() const;
     std::vector<Effect> getEffects() const;
 
-    Damage(const std::vector<Value> values,const std::vector<Effect> effects);
+    Damage(const std::vector<AttackValue> values,const std::vector<Effect> effects);
 
     Damage operator *(double factor) const;
     Damage & operator *=(double factor);
 
 protected:
-    std::vector<Value> values;
+    std::vector<AttackValue> values;
     std::vector<Effect> effects;
 };
 

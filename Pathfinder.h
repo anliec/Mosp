@@ -12,11 +12,7 @@
 
 class Pathfinder {
 public:
-<<<<<<< HEAD
     Pathfinder(Coordinate from, Coordinate to, Map sourceMap, int deapLimit = 40);
-=======
-    Pathfinder(Coordinate from, Coordinate to, Map sourceMap, int deapLimit = 20);
->>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
 
     std::vector<Coordinate> compute();
 
@@ -30,10 +26,6 @@ private:
     Coordinate ending;
     Map map;
     std::vector<Coordinate> path;
-<<<<<<< HEAD
-=======
-    std::vector<Coordinate> exploredTiles;
->>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     bool computed;
     int minDeep;
     int currantDeep;

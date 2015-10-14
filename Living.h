@@ -5,7 +5,6 @@
 #ifndef MOSP_LIVING_H
 #define MOSP_LIVING_H
 
-<<<<<<< HEAD
 #include <string>
 
 #include "Coordinate.h"
@@ -27,19 +26,6 @@ private:
     Coordinate coordinate;
     std::string name;
     int className;
-=======
-#include "Coordinate.h"
-
-class Living {
-public:
-    Living(Coordinate livingCoordinate = Coordinate(-1,-1));
-
-    void setCoordinate(Coordinate livingCoordinate);
-    Coordinate getCoordinate();
-
-private:
-    Coordinate coordinate;
->>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
 };
 
 #endif //MOSP_LIVING_H

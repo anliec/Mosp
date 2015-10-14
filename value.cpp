@@ -12,6 +12,7 @@ Value Value::operator *(double factor) const
 Value & Value::operator *=(double factor)
 {
     value *= factor;
+    return *this;
 }
 
 int Value::getType() const
@@ -48,7 +49,7 @@ std::vector<Value> operator+(const std::vector<Value> vA,const std::vector<Value
         {
             if(ret.at(i).getType() == ret.at(n).getType())
             {
-                //if the two elements have the same type, we but the sum in the first one
+                //if the two elements have the same type, we put the sum in the first one
                 ret.at(i).setValue(ret.at(i).getValue() + ret.at(n).getValue());
                 //and we delete the segond one
                 ret.erase(ret.begin() + n);

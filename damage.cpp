@@ -1,6 +1,6 @@
 #include "damage.h"
 
-Damage::Damage(const std::vector<Value> values,const std::vector<Effect> effects)
+Damage::Damage(const std::vector<AttackValue> values,const std::vector<Effect> effects)
     : values(values),effects(effects)
 {
 
@@ -8,7 +8,7 @@ Damage::Damage(const std::vector<Value> values,const std::vector<Effect> effects
 
 Damage Damage::operator *(double factor) const
 {
-    std::vector<Value> retValues;
+    std::vector<AttackValue> retValues;
     for(int i=0 ; i<values.size() ; i++)
     {
         retValues.push_back(values.at(i)*factor);
@@ -30,7 +30,7 @@ std::vector<Effect> Damage::getEffects() const
     return effects;
 }
 
-std::vector<Value> Damage::getValues() const
+std::vector<AttackValue> Damage::getValues() const
 {
     return values;
 }

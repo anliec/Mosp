@@ -24,7 +24,6 @@ public:
     bool addObject(Object objectToAdd);
     void addLiving(Living *livingToAdd);
     void removeObject();
-<<<<<<< HEAD
     bool removeLiving(const Living *livingToRemove);
     bool removeLiving(int pos);
     int getPosOnLivings(const Living *livingToRemove) const;
@@ -34,19 +33,7 @@ public:
     Coordinate getCoordinate() const;
     int getType() const;
 
-protected:
-=======
-    bool removeLiving(Living *livingToRemove);
-    bool removeLiving(int pos);
-    int getPosOnLivings(Living *livingToRemove) const;
-    Object getObject();
-    std::vector<Living *> getLivings() const;
-
-    Coordinate getCoordinate();
-    int getType();
-
 private:
->>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     Coordinate coordinate;
     int type;
     std::vector<Living *> livings;
