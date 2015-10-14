@@ -19,6 +19,7 @@ Map::Map(int height, int width)
     }
 }
 
+<<<<<<< HEAD
 Map::Map(std::string filePath)
 {
     try{
@@ -50,20 +51,53 @@ Map::Map(std::string filePath)
                     }
                     else
                     {
+=======
+Map::Map(std::string filePath) {
+    try{
+        std::ifstream myStream(filePath);
+
+        if(myStream){
+            char c;
+            int line = 0;
+            int i=0;
+            while(myStream.get(c)){
+                if(i >= tiles.size()){ //if the column doesn't exist
+                    std::vector<Tile> column;
+                    tiles.push_back(column); //add the column
+                    //add the missing lines:
+                    for (int y = 0; y < line; ++y) {
+                        tiles.at(i).push_back(Coordinate(i,y));
+                    }
+                }
+                if(c != '\n'){
+                    int type;
+                    if(std::isdigit(c)){
+                        type = std::atoi(&c);
+                    }
+                    else{
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
                         type = TILE_UNWALKABLE;
                     }
                     tiles.at(i).push_back( Tile(Coordinate(i,line),type));
                     i++;
                 }
+<<<<<<< HEAD
                 else
                 {
+=======
+                else{
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
                     i=0;
                     line++;
                 }
             }
         }
+<<<<<<< HEAD
         else
         {
+=======
+        else{
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
             std::cerr << "ERROR WHEN LOADING FILE: " << filePath << std::endl;
         }
 
@@ -76,8 +110,12 @@ Map::Map(std::string filePath)
 
 }
 
+<<<<<<< HEAD
 void Map::printMap() const
 {
+=======
+void Map::printMap() {
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     int y=0;
     bool lineLeft = true;
 
@@ -97,10 +135,16 @@ void Map::printMap() const
     }
 }
 
+<<<<<<< HEAD
 Tile & Map::getTile(Coordinate c)
 {
     try{
         return tiles.at(c.getX()).at(c.getY());//return a reference to the tile
+=======
+Tile & Map::getTile(Coordinate c) {
+    try{
+        return tiles.at(c.getX()).at(c.getY());//return a reference to the tiles
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     }
     catch(std::exception & e){
         std::cerr << "ERROR: " << e.what() << std::endl;
@@ -108,8 +152,12 @@ Tile & Map::getTile(Coordinate c)
     }
 }
 
+<<<<<<< HEAD
 bool Map::applyMove(Move move)
 { //return the number of small move done ?
+=======
+bool Map::applyMove(Move move) { //return the number of small move done ?
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     std::vector<Coordinate> path = move.getPath();
     Coordinate last = path.front();
     for (int i = 1; i < path.size(); ++i) {
@@ -121,8 +169,12 @@ bool Map::applyMove(Move move)
     return true;
 }
 
+<<<<<<< HEAD
 bool Map::smallMove(Living *livingToMove, Coordinate from, Coordinate to)
 {
+=======
+bool Map::smallMove(Living *livingToMove, Coordinate from, Coordinate to) {
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     if(norm1(from,to)==1){
         /*Tile & beginning = getTile(from);
         Tile & ending = getTile(to);*/
@@ -144,8 +196,12 @@ bool Map::smallMove(Living *livingToMove, Coordinate from, Coordinate to)
     }
 }
 
+<<<<<<< HEAD
 bool Map::isOnMap(const Coordinate c) const
 {
+=======
+bool Map::isOnMap(Coordinate c) {
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     if(tiles.size() > c.getX()){
         if(tiles.at(c.getX()).size() > c.getY()){
             return true;
@@ -154,6 +210,7 @@ bool Map::isOnMap(const Coordinate c) const
     return false;
 }
 
+<<<<<<< HEAD
 int Map::getHeight() const
 {
     int maxHeight=0;
@@ -183,6 +240,12 @@ Tile & Map::at(const Coordinate coord){
 void Map::addLiving(Living * living){
     at(living->getCoordinate()).addLiving(living);
 }
+=======
+
+
+
+
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
 
 
 

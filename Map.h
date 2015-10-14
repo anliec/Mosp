@@ -21,6 +21,7 @@ public:
 
     Tile & getTile(Coordinate);
 
+<<<<<<< HEAD
     void printMap() const;
     bool applyMove(const Move move);
     bool smallMove(Living * livingToMove,Coordinate from, Coordinate to);
@@ -36,6 +37,15 @@ private:
     std::vector< std::vector<Tile> > tiles;
     std::vector<Coordinate> team1Tiles; //unused
     std::vector<Coordinate> team2Tiles; //unused
+=======
+    void printMap();
+    bool applyMove(Move move);
+    bool smallMove(Living * livingToMove,Coordinate from, Coordinate to);
+    bool isOnMap(Coordinate);
+
+private:
+    std::vector< std::vector<Tile> > tiles;
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
 };
 
 

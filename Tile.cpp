@@ -4,12 +4,21 @@
 
 #include "Tile.h"
 
+<<<<<<< HEAD
 Tile::Tile(): coordinate(0,0), type(TILE_UNWALKABLE) {
     object = nullptr;
 }
 
 Tile::Tile(Coordinate tileCoordinate, int tileType): coordinate(tileCoordinate), type(tileType) {
     object = nullptr;
+=======
+Tile::Tile(): coordinate(0,0), type(TILE_WALKABLE) {
+
+}
+
+Tile::Tile(Coordinate tileCoordinate, int tileType): coordinate(tileCoordinate), type(tileType) {
+
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
 }
 
 Tile::~Tile() {
@@ -18,7 +27,11 @@ Tile::~Tile() {
     }
 }
 
+<<<<<<< HEAD
 Coordinate Tile::getCoordinate() const { return coordinate; }
+=======
+Coordinate Tile::getCoordinate() { return coordinate; }
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
 
 /*
  * tri to add objectToAdd to the tile:
@@ -46,19 +59,33 @@ void Tile::removeObject() {
     object = nullptr;
 }
 
+<<<<<<< HEAD
 Object Tile::getObject() const { return *object; }
 
 int Tile::getType() const { return type;}
+=======
+Object Tile::getObject() { return *object; }
+
+int Tile::getType() { return type;}
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
 
 /*
  * remove from the livings list of the tile the case with the same address.
  * if there are no such case, nothing append.
  */
+<<<<<<< HEAD
 bool Tile::removeLiving(const Living *livingToRemove) {
     return removeLiving(getPosOnLivings(livingToRemove));
 }
 
 int Tile::getPosOnLivings(const Living *living) const{
+=======
+bool Tile::removeLiving(Living *livingToRemove) {
+    return removeLiving(getPosOnLivings(livingToRemove));
+}
+
+int Tile::getPosOnLivings(Living *living) const{
+>>>>>>> 54b6715a672a94850a3118be7ae35cd548373ade
     for (int i = 0; i < livings.size(); ++i) {
         if(livings.at(i) == living){
             return i; //end the 'for' once one living is found.
