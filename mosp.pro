@@ -75,4 +75,5 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 DISTFILES += \
-    mosp.pro.user
+    mosp.pro.user \
+    map/test.map

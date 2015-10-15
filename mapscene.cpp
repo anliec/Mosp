@@ -17,7 +17,7 @@ MapScene::~MapScene()
     path.empty();
 }
 
-void MapScene::drawTile(Tile tile){
+void MapScene::drawTile(Tile &tile){
 
     QBrush activeBrush;
     switch(tile.getType()){
