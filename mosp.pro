@@ -41,7 +41,8 @@ SOURCES += main.cpp\
     monster.cpp \
     fight.cpp \
     attackvalue.cpp \
-    attackrange.cpp
+    attackrange.cpp \
+    bag.cpp
 
 HEADERS  += mainwindow.h \
     Tile.h \
@@ -70,7 +71,8 @@ HEADERS  += mainwindow.h \
     monster.h \
     fight.h \
     attackvalue.h \
-    attackrange.h
+    attackrange.h \
+    bag.h
 
 FORMS    += mainwindow.ui
 

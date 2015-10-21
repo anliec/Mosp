@@ -1,6 +1,6 @@
 #include "player.h"
 
-Player::Player(std::vector<HoldableObject> bag, std::vector<Wearable> clothes, Weapon activeWeapon,\
+Player::Player(Bag bag, std::vector<Wearable> clothes, Weapon activeWeapon,\
                int level, Attributs attributs, std::vector<Attack> attacks, std::vector<Effect> effects,\
                int className, std::string livingName, Coordinate livingCoordinate):\
     Fighter(level,attributs,attacks,effects,className,livingName,livingCoordinate),\
