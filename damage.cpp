@@ -25,12 +25,12 @@ Damage & Damage::operator *=(double factor)
     return *this;
 }
 
-std::vector<Effect> Damage::getEffects() const
+std::vector<Effect> &Damage::getEffects()
 {
     return effects;
 }
 
-std::vector<AttackValue> Damage::getValues() const
+std::vector<AttackValue> &Damage::getValues()
 {
     return values;
 }

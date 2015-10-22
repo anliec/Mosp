@@ -32,9 +32,11 @@ public:
     void applyAttackValues(Damage &damage) const;
     //algo: the damages of every type is raised by one pourcent
     //      for each attributs' point of the same type.
+    //      (also use powerBonnus)
     void applyAttackFixBonnus(Damage &damage) const;
     //algo: the damages of every type is raised by the quantity
     //      given in the attributs' fix damage bonnus.
+    //      (also use fixDamageBonnus)
     void applyAttackRelativeBonnus(Damage &damage) const;
     //algo: the damages of every type is raised by one pourcent
     //      for each attributs' point of realative damage bonnus
@@ -61,13 +63,17 @@ public:
 
 protected:
     int live;
-    std::vector<Value> values;
     int actionPoint;
     int movePoint;
+    //Attack modificator depanding on value type:
+    std::vector<Value> values;
     std::vector<Value> fixResistances;
     std::vector<Value> relativeResistances;
     std::vector<Value> fixFightBonus;
     std::vector<Value> relativeFightBonus;
+    //Attack modificator for each value type:
+    int powerBonnus;
+    int fixDamageBonnus;
 };
 
 #endif // ATTRIBUTS_H

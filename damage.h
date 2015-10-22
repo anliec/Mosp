@@ -8,8 +8,8 @@
 class Damage
 {
 public:
-    std::vector<AttackValue> getValues() const;
-    std::vector<Effect> getEffects() const;
+    std::vector<AttackValue> & getValues();
+    std::vector<Effect> & getEffects();
 
     Damage(const std::vector<AttackValue> values,const std::vector<Effect> effects);
 

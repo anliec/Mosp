@@ -2,7 +2,11 @@
 
 Attributs::Attributs()
 {
-
+    live=0;
+    actionPoint=0;
+    movePoint=0;
+    powerBonnus=0;
+    relativeDamageBonnus=0;
 }
 
 ///Methods:
@@ -11,15 +15,19 @@ void Attributs::applyAttackValues(Damage &damage) const
 {
     for(int i=0; i<damage.getValues().size() ; i++)
     {
+        int newDamage = damage.getValues().at(i).getValue();
+        int damageBonnus = powerBonnus;
         for(int a=0 ; a<values.size() ; a++)
         {
             if(damage.getValues().at(i).getType() == values.at(a).getType() )
             {
-                int newDamage = damage.getValues().at(i).getValue();
-                newDamage += (newDamage * values.at(a).getValue()) / 100; //one value point -> add 1% damage
-                damage.getValues().at(i).setValue(newDamage);
+                damageBonnus += values.at(a).getValue(); //one value point -> add 1% damage
+                //exit for loop: (there are only one couple)
+                a = values.size();
             }
         }
+        newDamage += newDamage*damageBonnus/100;
+        damage.getValues().at(i).setValue(newDamage);
     }
 }
 
