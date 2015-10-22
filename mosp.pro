@@ -78,4 +78,5 @@ FORMS    += mainwindow.ui
 
 DISTFILES += \
     mosp.pro.user \
-    map/test.map
+    map/test.map \
+    calculs.txt
