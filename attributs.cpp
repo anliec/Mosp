@@ -35,15 +35,18 @@ void Attributs::applyAttackFixBonnus(Damage &damage) const
 {
     for(int i=0; i<damage.getValues().size() ; i++)
     {
+        int newDamage = damage.getValues().at(i).getValue();
+        newDamage += fixDamageBonnus;
         for(int a=0 ; a<fixFightBonus.size() ; a++)
         {
             if(damage.getValues().at(i).getType() == fixFightBonus.at(a).getType() )
             {
-                int newDamage = damage.getValues().at(i).getValue();
                 newDamage += fixFightBonus.at(a).getValue(); //add fix attack bonnus
-                damage.getValues().at(i).setValue(newDamage);
+                //exit for loop: (there are only one couple)
+                a = values.size();
             }
         }
+        damage.getValues().at(i).setValue(newDamage);
     }
 }
 
