@@ -42,7 +42,8 @@ SOURCES += main.cpp\
     fight.cpp \
     attackvalue.cpp \
     attackrange.cpp \
-    bag.cpp
+    bag.cpp \
+    shootablerange.cpp
 
 HEADERS  += mainwindow.h \
     Tile.h \
@@ -72,7 +73,8 @@ HEADERS  += mainwindow.h \
     fight.h \
     attackvalue.h \
     attackrange.h \
-    bag.h
+    bag.h \
+    shootablerange.h
 
 FORMS    += mainwindow.ui
 

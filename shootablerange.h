@@ -11,9 +11,13 @@ public:
 
 private :
     void computeTile(const Map &map, const Coordinate crd);
+    byte bresenham(const Coordinate crd);
+    Coordinate switchToOctantZeroFrom(byte octant, Coordinate crd);
+    Coordinate switchFromOctantZeroTo(byte octant, Coordinate crd);
 
     std::vector<std::vector<byte>> m_shootableTiles;
-    m_centerPos;
+    Coordinate m_absolutePosOnMap;
+    byte m_center;
 };
 
 #endif // SHOOTABLERANGE_H

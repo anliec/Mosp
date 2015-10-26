@@ -1,7 +1,7 @@
 #include "shootablerange.h"
 
 ShootableRange::ShootableRange(const Map &map,const Coordinate centerPos, int type =0, int maxRange =0, int minRange =0) :
-    m_centerPos(centerPos), Range(type, maxRange, minRange)
+    m_absolutePosOnMap(centerPos), Range(type, maxRange, minRange)
 {
     m_shootableTiles = new vector<vector<byte>>;
     for(byte i=0; i<2*maxRange+1; i++)
@@ -13,16 +13,16 @@ ShootableRange::ShootableRange(const Map &map,const Coordinate centerPos, int ty
             m_shootableTiles.at(i).push_back(0);
         }
     }
-    byte center = m_shootableTiles.size()/2;
-    Coordinate upLeftCrd(m_centerPos-maxRange, m_centerPos-maxRange);
+    byte m_center = m_shootableTiles.size()/2;
+    Coordinate upLeftCrd(m_absolutePosOnMap-maxRange, m_absolutePosOnMap-maxRange);
     for (byte radius=minRange; radius<=maxRange; ++radius)
     {
-        for (byte i=center; i<=center+radius; i++)
+        for (byte i=m_center; i<=m_center+radius; i++)
         {
-            computeTile(map, Coordinate(2*center-i,-radius+1));
-            computeTile(map, Coordinate(2*center-i,2*center+radius-i));
+            computeTile(map, Coordinate(2*m_center-i,-radius+1));
+            computeTile(map, Coordinate(2*m_center-i,2*m_center+radius-i));
             computeTile(map, Coordinate(i,-radius+i));
-            computeTile(map, Coordinate(i,2*center+radius-i));
+            computeTile(map, Coordinate(i,2*m_center+radius-i));
         }
     }//at this point, all the view blocking tiles in the range are found. Now we must find where we cannot shoot
 }
@@ -35,6 +35,29 @@ void ShootableRange::computeTile(const Map &map, const Coordinate crd, const Coo
     if(map.at(mapCrd).getObject()!=nullptr && map.at(mapCrd).getLivings()!=nullptr)
     {
         m_shootableTiles.at(crd.getX()).at(crd.getY())=TILE_VIEW_BLOCKING;
+    }
+
+    m_shootableTiles.at(crd.getX()).at(crd.getY()) = bresenham(crd)
+}
+
+byte ShootableRange::bresenham(const Coordinate crd)
+{
+    Coordinate octantZeroCrd;
+}
+
+Coordinate ShootableRange::switchToOctantZeroFrom(byte octant, Coordinate crd)
+{
+    switch(octant)
+    {
+
+    }
+}
+
+Coordinate ShootableRange::switchFromOctantZeroTo(octant, Coordinate crd)
+{
+    switch(octant)
+    {
+
     }
 }
 
