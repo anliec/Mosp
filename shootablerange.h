@@ -2,6 +2,7 @@
 #define SHOOTABLERANGE_H
 
 #include "Map.h"
+#include <math.h>
 
 class ShootableRange : public range
 {
@@ -11,9 +12,7 @@ public:
 
 private :
     void computeTile(const Map &map, const Coordinate crd);
-    unsigned char bresenham(const Coordinate crd);
-    Coordinate switchToOctantZeroFrom(unsigned char octant, Coordinate crd);
-    Coordinate switchFromOctantZeroTo(unsigned char octant, Coordinate crd);
+    unsigned char bresenhamCheck(const Coordinate crd);
 
     std::vector<std::vector<unsigned char>> m_shootableTiles;
     Coordinate m_absolutePosOnMap;

@@ -13,7 +13,7 @@
 #define TILE_WALKABLE 0
 #define TILE_UNWALKABLE 1
 #define TILE_VIEW_BLOCKING 2
-
+#define TILE_UNTARGETABLE 3
 
 class Tile {
 public:
