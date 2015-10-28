@@ -1,38 +1,39 @@
 #include "shootablerange.h"
 
-ShootableRange::ShootableRange(const Map &map,const Coordinate centerPos, int type =0, int maxRange =0, int minRange =0) :
-    m_absolutePosOnMap(centerPos), Range(type, maxRange, minRange)
+
+ShootableRange::ShootableRange(const Map &map,const Coordinate &centerPos, int maxRange, int minRange):\
+    m_absolutePosOnMap(centerPos), maxRange(maxRange), minRange(minRange)
 {
-    m_shootableTiles = new vector<vector<unsigned char>>;
-    for(unsigned char i=0; i<2*maxRange+1; i++)
+    for(int i=0; i<2*maxRange+1; i++)
     {
-        vector<unsigned char> column;
+        std::vector<unsigned char> column;
         m_shootableTiles.push_back(column);
-        for(byte j=0; j<2*radius+1; j++)
+        for(unsigned j=0; j<2*radius+1; j++)
         {
             m_shootableTiles.at(i).push_back(0);
         }
     }
     unsigned char m_center = m_shootableTiles.size()/2;
-    Coordinate upLeftCrd(m_absolutePosOnMap-maxRange, m_absolutePosOnMap-maxRange);
-    for (unsigned char radius=minRange; radius<=maxRange; ++radius)
+    Coordinate upLeftCrd(m_absolutePosOnMap.getX()-maxRange, m_absolutePosOnMap.getY()-maxRange);
+    for (unsigned radius=minRange; radius<=maxRange; ++radius)
     {
-        for (unsigned char i=m_center; i<=m_center+radius; i++)
+        for (unsigned i=m_center; i<=m_center+radius; i++)
         {
-            computeTile(map, Coordinate(2*m_center-i,-radius+1));
-            computeTile(map, Coordinate(2*m_center-i,2*m_center+radius-i));
-            computeTile(map, Coordinate(i,-radius+i));
-            computeTile(map, Coordinate(i,2*m_center+radius-i));
+            computeTile(map, Coordinate(2*m_center-i,-radius+1),upLeftCrd);
+            computeTile(map, Coordinate(2*m_center-i,2*m_center+radius-i),upLeftCrd);
+            computeTile(map, Coordinate(i,-radius+i),upLeftCrd);
+            computeTile(map, Coordinate(i,2*m_center+radius-i),upLeftCrd);
         }
     }//at this point, all the view blocking tiles in the range are found. Now we must find where we cannot shoot
 }
 
-void ShootableRange::computeTile(const Map &map, const Coordinate crd, const Coordinate upLeftCrd)
+void ShootableRange::computeTile(const Map &map, const Coordinate &crd, const Coordinate &upLeftCrd)
 {
     Coordinate mapCrd = crd;
     mapCrd.setX(mapCrd.getX()+ upLeftCrd.getX());
     mapCrd.setY(mapCrd.getY()+ upLeftCrd.getY());
-    if(map.at(mapCrd).getObject()!=nullptr && map.at(mapCrd).getLivings()!=nullptr)
+    Tile currantTile = map.readTileAt(mapCrd);
+    if(currantTile.getObject()!=nullptr && currantTile.getLivings().size()!=0)
     {
         m_shootableTiles.at(crd.getX()).at(crd.getY())=TILE_VIEW_BLOCKING;
     }
@@ -68,7 +69,7 @@ unsigned char ShootableRange::bresenhamCheck(const Coordinate crd)
 
     if(swapXY)
         // Y / X
-        for ( x=0; x<=x1; x++) {
+        for ( int x=0; x<=x1; x++) {
             if( /*!rayCanPass(y,x)*/m_shootableTiles.at(y).at(x)==TILE_VIEW_BLOCKING )
                 return TILE_UNTARGETABLE;
 
@@ -80,7 +81,7 @@ unsigned char ShootableRange::bresenhamCheck(const Coordinate crd)
         }
     else
         // X / Y
-        for (x=0; x<=x1; x++) {
+        for (int x=0; x<=x1; x++) {
             if( /*!rayCanPass(x,y)*/m_shootableTiles.at(x).at(y)==TILE_VIEW_BLOCKING )
                 return TILE_UNTARGETABLE;
 

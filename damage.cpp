@@ -34,3 +34,19 @@ std::vector<AttackValue> &Damage::getValues()
 {
     return values;
 }
+
+AttackValue Damage::getValue(int index) const
+{
+    return values.at(index);
+}
+
+void Damage::setValue(const AttackValue &value, int index)
+{
+    values.at(index) = value;
+}
+
+int Damage::getMaxIndex() const
+{
+    values.size();
+}
+

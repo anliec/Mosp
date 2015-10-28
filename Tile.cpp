@@ -42,13 +42,17 @@ void Tile::addLiving(Living* livingToAdd) {
     livingToAdd->setCoordinate(coordinate);
 }
 
-void Tile::removeObject() {
+void Tile::removeObject()
+{
     delete object;
     object = nullptr;
 }
 
 
-Object Tile::getObject() const { return *object; }
+Object * Tile::getObject() const
+{
+    return object;
+}
 
 int Tile::getType() const { return type;}
 

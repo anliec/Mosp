@@ -27,7 +27,7 @@ public:
     bool removeLiving(const Living *livingToRemove);
     bool removeLiving(int pos);
     int getPosOnLivings(const Living *livingToRemove) const;
-    Object getObject() const;
+    Object *getObject() const;
     std::vector<Living *> getLivings() const;
 
     Coordinate getCoordinate() const;

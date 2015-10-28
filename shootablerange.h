@@ -3,20 +3,24 @@
 
 #include "Map.h"
 #include <math.h>
+#include <vector>
 
-class ShootableRange : public range
+class ShootableRange
 {
 public:
-    ShootableRange(const Map &map,const Coordinate centerPos, int type =0, int maxRange =0, int minRange =0);
+    ShootableRange(const Map &map, const Coordinate &centerPos, int maxRange =0, int minRange =0);
     std::vector<std::vector<unsigned char>> getShootableTiles();
 
 private :
-    void computeTile(const Map &map, const Coordinate crd);
+    void computeTile(const Map &map, const Coordinate &crd, const Coordinate &upLeftCrd);
     unsigned char bresenhamCheck(const Coordinate crd);
 
     std::vector<std::vector<unsigned char>> m_shootableTiles;
     Coordinate m_absolutePosOnMap;
     unsigned char m_center;
+
+    unsigned int maxRange;
+    unsigned int minRange;
 };
 
 #endif // SHOOTABLERANGE_H

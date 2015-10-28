@@ -173,13 +173,24 @@ int Map::getWidth() const
     return tiles.size();
 }
 
-Tile & Map::at(const Coordinate coord){
+Tile & Map::at(const Coordinate & coord)
+{
     if(isOnMap(coord)){
         return tiles.at(coord.getX()).at(coord.getY()); //return a reference to the tile
     }
     else{
         Tile tile(coord, TILE_UNWALKABLE);
         return tile;
+    }
+}
+
+Tile Map::readTileAt(const Coordinate & coord) const
+{
+    if(isOnMap(coord)){
+        return tiles.at(coord.getX()).at(coord.getY()); //return a reference to the tile
+    }
+    else{
+        return Tile(coord, TILE_UNWALKABLE);
     }
 }
 

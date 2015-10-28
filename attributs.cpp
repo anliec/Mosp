@@ -6,7 +6,7 @@ Attributs::Attributs()
     actionPoint=0;
     movePoint=0;
     powerBonnus=0;
-    relativeDamageBonnus=0;
+    fixDamageBonnus=0;
 }
 
 ///Methods:
@@ -108,9 +108,9 @@ void Attributs::applyDefenseRelativeResistances(Damage &damage) const
 
 void Attributs::looseLiveFromDamage(const Damage &damage)
 {
-    for(int i=0 ; i<damage.getValues().size() ; i++)
+    for(int i=0 ; i<damage.getMaxIndex() ; i++)
     {
-        live -= damage.getValues().at(i).getValue();
+        live -= damage.getValue(i).getValue();
     }
 }
 
