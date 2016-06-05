@@ -1,0 +1,8 @@
+# Les ligne commençant par '#' sont des commentaires.
+
+# Ignorer tous les fichiers  persos qt
+*.pro.user
+*.pro.user.18
+
+# Ignorer les objets et les archives
+*.[oa]
