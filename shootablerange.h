@@ -19,8 +19,8 @@ private :
     Coordinate m_absolutePosOnMap;
     unsigned char m_center;
 
-    unsigned int maxRange;
-    unsigned int minRange;
+    unsigned int m_maxRange;
+    unsigned int m_minRange;
 };
 
 #endif // SHOOTABLERANGE_H

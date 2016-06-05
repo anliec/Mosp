@@ -2,20 +2,20 @@
 
 
 ShootableRange::ShootableRange(const Map &map,const Coordinate &centerPos, int maxRange, int minRange):\
-    m_absolutePosOnMap(centerPos), maxRange(maxRange), minRange(minRange)
+    m_absolutePosOnMap(centerPos), m_maxRange(maxRange), m_minRange(minRange)
 {
-    for(int i=0; i<2*maxRange+1; i++)
+    for(int i=0; i<2*m_maxRange+1; i++)
     {
         std::vector<unsigned char> column;
         m_shootableTiles.push_back(column);
-        for(unsigned j=0; j<2*radius+1; j++)
+        for(unsigned j=0; j<2*m_maxRange+1; j++)
         {
             m_shootableTiles.at(i).push_back(0);
         }
     }
     unsigned char m_center = m_shootableTiles.size()/2;
-    Coordinate upLeftCrd(m_absolutePosOnMap.getX()-maxRange, m_absolutePosOnMap.getY()-maxRange);
-    for (unsigned radius=minRange; radius<=maxRange; ++radius)
+    Coordinate upLeftCrd(m_absolutePosOnMap.getX()-m_maxRange, m_absolutePosOnMap.getY()-m_maxRange);
+    for (unsigned radius=minRange; radius<=m_maxRange; ++radius)
     {
         for (unsigned i=m_center; i<=m_center+radius; i++)
         {
@@ -63,7 +63,7 @@ unsigned char ShootableRange::bresenhamCheck(const Coordinate crd)
 
     signed char deltaX = x1 - x0;
     signed char deltaY = floor( abs( y1 - y0 ) );
-    signed char error = floor( deltax / 2 );
+    signed char error = floor( deltaX / 2 );
     signed char y = y0;
     signed char yStep =(y0 < y1) ? 1 : -1;
 
