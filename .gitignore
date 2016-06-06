@@ -5,5 +5,9 @@
 *.pro.user.18
 *~
 
+#ignore bin directory
+bin/server/debug/*
+bin/server/release/*
+
 # Ignorer les objets et les archives
 *.[oa]

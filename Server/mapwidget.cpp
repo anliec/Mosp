@@ -21,7 +21,8 @@ void MapWidget::mousePressEvent(QMouseEvent *eventPress)
 {
     QPoint mouseOnScene = mapToScene(eventPress->pos()).toPoint();
     Coordinate mouse = mapScene->pointToCoordinate(mouseOnScene);
-    if(map->at(mouse).getType() == TILE_WALKABLE){
+    Tile * t = map->at(mouse);
+    if(t != nullptr && t->getType() == TILE_WALKABLE){
         Pathfinder pathfinder(player->getCoordinate(),mouse,*map);
         Move move(player);
         move.setPath(pathfinder.compute());
@@ -35,7 +36,8 @@ void MapWidget::mouseMoveEvent(QMouseEvent *eventMove)
 {
     QPoint mouseOnScene = mapToScene(eventMove->pos()).toPoint();
     Coordinate mouse = mapScene->pointToCoordinate(mouseOnScene);
-    if(map->at(mouse).getType() == TILE_WALKABLE){
+    Tile * t = map->at(mouse);
+    if(t != nullptr && t->getType() == TILE_WALKABLE){
         Pathfinder pathfinder(player->getCoordinate(),mouse,*map);
         mapScene->setPath(pathfinder.compute());
         mapScene->resetScene();

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     /*MainWindow w;
     w.show();*/
     Living player(LIVING_UNUSABLE,"player",Coordinate(0,0));
-    Map map("map/test.map");
+    Map map("../../../map/test.map");
     map.addLiving(&player);
     MapWidget w(&map, &player);
     w.show();

@@ -16,7 +16,7 @@ public:
     MapScene(Map * map, QObject *parent =0);
     ~MapScene();
 
-    void drawTile(Tile &tile);
+    void drawTile(Tile *tile);
     void drawLiving(Living *living);
     void drawPath(Coordinate c);
     void drawTileScare(Coordinate c, QBrush Brush, QPen pen);

@@ -26,7 +26,7 @@ public:
     bool smallMove(Living * livingToMove,Coordinate from, Coordinate to);
     bool isOnMap(const Coordinate) const;
 
-    Tile & at(const Coordinate &coordinate);
+    Tile *at(const Coordinate &coordinate);
     Tile readTileAt(const Coordinate &coordinate) const;
     void addLiving(Living *living);
 

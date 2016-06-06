@@ -17,10 +17,10 @@ MapScene::~MapScene()
     path.empty();
 }
 
-void MapScene::drawTile(Tile &tile){
+void MapScene::drawTile(Tile *tile){
 
     QBrush activeBrush;
-    switch(tile.getType()){
+    switch(tile->getType()){
     case TILE_WALKABLE:
         activeBrush = brushWalkable;
         break;
@@ -31,7 +31,7 @@ void MapScene::drawTile(Tile &tile){
         activeBrush = brushViewBlocking;
         break;
     }
-    drawTileScare(tile.getCoordinate(),activeBrush,penBoundary);
+    drawTileScare(tile->getCoordinate(),activeBrush,penBoundary);
 
 }
 
@@ -75,8 +75,8 @@ void MapScene::resetScene(){
     //if there are one or more living on the tile we draw them:
     for(int x=0 ; x<size.width() ; x++){
         for(int y=0 ; y<size.height() ; y++){
-            for(unsigned int i=0 ; i<map->at(Coordinate(x,y)).getLivings().size() ; i++){
-                drawLiving(map->at(Coordinate(x,y)).getLivings().at(i));
+            for(unsigned int i=0 ; i<map->at(Coordinate(x,y))->getLivings().size() ; i++){
+                drawLiving(map->at(Coordinate(x,y))->getLivings().at(i));
             }
         }
     }
