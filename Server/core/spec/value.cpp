@@ -34,18 +34,18 @@ std::vector<Value> operator+(const std::vector<Value> vA,const std::vector<Value
 {
     std::vector<Value> ret;
 
-    for(int i=0 ; i<vA.size() ; i++)
+    for(unsigned i=0 ; i<vA.size() ; i++)
     {
         ret.push_back(vA.at(i));
     }
-    for(int i=0 ; i<vB.size() ; i++)
+    for(unsigned i=0 ; i<vB.size() ; i++)
     {
         ret.push_back(vB.at(i));
     }
 
-    for(int i=0 ; i<ret.size() ; i++)
+    for(unsigned i=0 ; i<ret.size() ; i++)
     {
-        for(int n=i+1 ; n<ret.size() ; n++)
+        for(unsigned n=i+1 ; n<ret.size() ; n++)
         {
             if(ret.at(i).getType() == ret.at(n).getType())
             {

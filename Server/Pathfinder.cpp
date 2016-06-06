@@ -4,7 +4,7 @@
 
 #include "Pathfinder.h"
 
-Pathfinder::Pathfinder(Coordinate from, Coordinate to, Map sourceMap, int deapLimit): beginning(from), ending(to), map(sourceMap),maxDeep(deapLimit){
+Pathfinder::Pathfinder(Coordinate from, Coordinate to, Map sourceMap, unsigned deapLimit): beginning(from), ending(to), map(sourceMap),maxDeep(deapLimit){
     computed = false;
 }
 
@@ -99,7 +99,7 @@ bool Pathfinder::explore() {
  * look if the given coordinate are on the current path excluding the last value.
  */
 bool Pathfinder::onCurrantPath(Coordinate c) {
-    for (int i = 0; i < path.size()-1; i++) {
+    for (unsigned i = 0; i < path.size()-1; i++) {
         if(path.at(i) == c){
             return true;
         }

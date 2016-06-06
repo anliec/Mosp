@@ -9,7 +9,7 @@ Damage::Damage(const std::vector<AttackValue> values,const std::vector<Effect> e
 Damage Damage::operator *(double factor) const
 {
     std::vector<AttackValue> retValues;
-    for(int i=0 ; i<values.size() ; i++)
+    for(unsigned i=0 ; i<values.size() ; i++)
     {
         retValues.push_back(values.at(i)*factor);
     }
@@ -18,7 +18,7 @@ Damage Damage::operator *(double factor) const
 
 Damage & Damage::operator *=(double factor)
 {
-    for(int i=0 ; i<values.size() ; i++)
+    for(unsigned i=0 ; i<values.size() ; i++)
     {
         values[i] *= factor;
     }
@@ -47,6 +47,6 @@ void Damage::setValue(const AttackValue &value, int index)
 
 int Damage::getMaxIndex() const
 {
-    values.size();
+    return values.size();
 }
 

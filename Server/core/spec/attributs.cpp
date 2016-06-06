@@ -13,11 +13,11 @@ Attributs::Attributs()
 
 void Attributs::applyAttackValues(Damage &damage) const
 {
-    for(int i=0; i<damage.getValues().size() ; i++)
+    for(unsigned i=0; i<damage.getValues().size() ; i++)
     {
         int newDamage = damage.getValues().at(i).getValue();
         int damageBonnus = powerBonnus;
-        for(int a=0 ; a<values.size() ; a++)
+        for(unsigned a=0 ; a<values.size() ; a++)
         {
             if(damage.getValues().at(i).getType() == values.at(a).getType() )
             {
@@ -33,11 +33,11 @@ void Attributs::applyAttackValues(Damage &damage) const
 
 void Attributs::applyAttackFixBonnus(Damage &damage) const
 {
-    for(int i=0; i<damage.getValues().size() ; i++)
+    for(unsigned i=0; i<damage.getValues().size() ; i++)
     {
         int newDamage = damage.getValues().at(i).getValue();
         newDamage += fixDamageBonnus;
-        for(int a=0 ; a<fixFightBonus.size() ; a++)
+        for(unsigned a=0 ; a<fixFightBonus.size() ; a++)
         {
             if(damage.getValues().at(i).getType() == fixFightBonus.at(a).getType() )
             {
@@ -52,9 +52,9 @@ void Attributs::applyAttackFixBonnus(Damage &damage) const
 
 void Attributs::applyAttackRelativeBonnus(Damage &damage) const
 {
-    for(int i=0; i<damage.getValues().size() ; i++)
+    for(unsigned i=0; i<damage.getValues().size() ; i++)
     {
-        for(int a=0 ; a<relativeFightBonus.size() ; a++)
+        for(unsigned a=0 ; a<relativeFightBonus.size() ; a++)
         {
             if(damage.getValues().at(i).getType() == relativeFightBonus.at(a).getType() )
             {
@@ -68,9 +68,9 @@ void Attributs::applyAttackRelativeBonnus(Damage &damage) const
 
 void Attributs::applyDefenseFixResistances(Damage &damage) const
 {
-    for(int i=0; i<damage.getValues().size() ; i++)
+    for(unsigned i=0; i<damage.getValues().size() ; i++)
     {
-        for(int a=0 ; a<fixResistances.size() ; a++)
+        for(unsigned a=0 ; a<fixResistances.size() ; a++)
         {
             if(damage.getValues().at(i).getType() == fixResistances.at(a).getType() )
             {
@@ -88,9 +88,9 @@ void Attributs::applyDefenseFixResistances(Damage &damage) const
 
 void Attributs::applyDefenseRelativeResistances(Damage &damage) const
 {
-    for(int i=0; i<damage.getValues().size() ; i++)
+    for(unsigned i=0; i<damage.getValues().size() ; i++)
     {
-        for(int a=0 ; a<relativeResistances.size() ; a++)
+        for(unsigned a=0 ; a<relativeResistances.size() ; a++)
         {
             if(damage.getValues().at(i).getType() == relativeResistances.at(a).getType() )
             {
