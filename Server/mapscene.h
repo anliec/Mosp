@@ -5,7 +5,7 @@
 
 #include <QWidget>
 #include <QGraphicsScene>
-#include "Map.h"
+#include "core/world/Map.h"
 #include <QSize>
 #include <QPen>
 #include <QBrush>

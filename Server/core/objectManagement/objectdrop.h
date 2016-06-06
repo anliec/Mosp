@@ -1,7 +1,7 @@
 #ifndef OBJECTDROP_H
 #define OBJECTDROP_H
 
-#include "holdableobject.h"
+#include "core/objects/holdableobject.h"
 
 class ObjectDrop
 {

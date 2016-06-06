@@ -4,8 +4,8 @@
 #include <iostream>
 #include <vector>
 #include "Coordinate.h"
-#include "Living.h"
-#include "Object.h"
+#include "core/living/Living.h"
+#include "core/objects/Object.h"
 
 #ifndef MOSP_TILE_H
 #define MOSP_TILE_H

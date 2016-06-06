@@ -1,8 +1,8 @@
 #ifndef WEARABLE_H
 #define WEARABLE_H
 
-#include "holdableobject.h"
-#include "attributs.h"
+#include "core/objects/holdableobject.h"
+#include "core/spec/attributs.h"
 
 class Wearable : public HoldableObject
 {

@@ -14,67 +14,82 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    Tile.cpp \
+    mainwindow.cpp \
     Pathfinder.cpp \
-    Object.cpp \
-    Move.cpp \
-    Map.cpp \
-    Living.cpp \
-    Coordinate.cpp \
+    Move.cpp \    
     mapwidget.cpp \
     mapscene.cpp \
-    world.cpp \
-    value.cpp \
     range.cpp \
-    effect.cpp \
-    damage.cpp \
-    attack.cpp \
-    attributs.cpp \
-    holdableobject.cpp \
-    wearable.cpp \
-    weapon.cpp \
-    nonplayercharacter.cpp \
-    fighter.cpp \
-    objectdrop.cpp \
-    player.cpp \
-    monster.cpp \
     fight.cpp \
-    attackvalue.cpp \
-    attackrange.cpp \
-    bag.cpp \
-    shootablerange.cpp
+    shootablerange.cpp \
+##core
+#core/world
+    core/world/world.cpp \
+    core/world/Coordinate.cpp \
+    core/world/Tile.cpp \
+    core/world/Map.cpp \
+#core/objects
+    core/objects/holdableobject.cpp \
+    core/objects/wearable.cpp \
+    core/objects/weapon.cpp \
+    core/objects/Object.cpp \
+#core/living
+    core/living/nonplayercharacter.cpp \
+    core/living/fighter.cpp \
+    core/living/player.cpp \
+    core/living/monster.cpp \
+    core/living/Living.cpp \
+#core/attack
+    core/attack/attack.cpp \
+    core/attack/effect.cpp \
+    core/attack/damage.cpp \
+    core/attack/attackvalue.cpp \
+    core/attack/attackrange.cpp \
+#core/spec
+    core/spec/value.cpp \
+    core/spec/attributs.cpp \
+#core/objectManagement
+    core/objectManagement/objectdrop.cpp \
+    core/objectManagement/bag.cpp
 
 HEADERS  += mainwindow.h \
-    Tile.h \
+    mainwindow.h \
     Pathfinder.h \
-    Object.h \
     Move.h \
-    Map.h \
-    Living.h \
-    Coordinate.h \
     mapwidget.h \
     mapscene.h \
-    world.h \
-    value.h \
     range.h \
-    effect.h \
-    damage.h \
-    attack.h \
-    attributs.h \
-    holdableobject.h \
-    wearable.h \
-    weapon.h \
-    nonplayercharacter.h \
-    fighter.h \
-    objectdrop.h \
-    player.h \
-    monster.h \
     fight.h \
-    attackvalue.h \
-    attackrange.h \
-    bag.h \
-    shootablerange.h
+    shootablerange.h \
+##core
+#core/world
+    core/world/world.h \
+    core/world/Coordinate.h \
+    core/world/Tile.h \
+    core/world/Map.h \
+#core/objects
+    core/objects/holdableobject.h \
+    core/objects/wearable.h \
+    core/objects/weapon.h \
+    core/objects/Object.h \
+#core/living
+    core/living/nonplayercharacter.h \
+    core/living/fighter.h \
+    core/living/player.h \
+    core/living/monster.h \
+    core/living/Living.h \
+#core/attack
+    core/attack/attack.h \
+    core/attack/effect.h \
+    core/attack/damage.h \
+    core/attack/attackvalue.h \
+    core/attack/attackrange.h \
+#core/spec
+    core/spec/value.h \
+    core/spec/attributs.h \
+#core/objectManagement
+    core/objectManagement/objectdrop.h \
+    core/objectManagement/bag.h
 
 FORMS    += mainwindow.ui
 

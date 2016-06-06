@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "fighter.h"
-#include "objectdrop.h"
+#include "core/living/fighter.h"
+#include "core/objectManagement/objectdrop.h"
 
 class Monster : public Fighter
 {

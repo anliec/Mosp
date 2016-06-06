@@ -3,11 +3,11 @@
 
 #include <vector>
 
-#include "fighter.h"
-#include "holdableobject.h"
-#include "wearable.h"
-#include "weapon.h"
-#include "bag.h"
+#include "core/living/fighter.h"
+#include "core/objects/holdableobject.h"
+#include "core/objects/wearable.h"
+#include "core/objects/weapon.h"
+#include "core/objectManagement/bag.h"
 
 class Player : public Fighter
 {

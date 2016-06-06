@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "value.h"
-#include "damage.h"
+#include "core/spec/value.h"
+#include "core/attack/damage.h"
 
 class Attributs
 {

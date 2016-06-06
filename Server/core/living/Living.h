@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "Coordinate.h"
+#include "core/world/Coordinate.h"
 
 #define LIVING_UNUSABLE 0
 #define LIVING_NONPLAYER 1

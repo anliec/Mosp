@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "Map.h"
-#include "fighter.h"
+#include "core/world/Map.h"
+#include "core/living/fighter.h"
 
 class Fight
 {

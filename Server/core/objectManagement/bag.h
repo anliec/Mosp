@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "holdableobject.h"
+#include "core/objects/holdableobject.h"
 
 class Bag
 {

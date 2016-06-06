@@ -3,11 +3,11 @@
 
 #include <vector>
 
-#include "Living.h"
-#include "attributs.h"
-#include "attack.h"
-#include "damage.h"
-#include "effect.h"
+#include "core/living/Living.h"
+#include "core/spec/attributs.h"
+#include "core/attack/attack.h"
+#include "core/attack/damage.h"
+#include "core/attack/effect.h"
 
 class Fighter : public Living
 {

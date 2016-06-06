@@ -7,8 +7,8 @@
 
 #include <iostream>
 #include <vector>
-#include "Coordinate.h"
-#include "Map.h"
+#include "core/world/Coordinate.h"
+#include "core/world/Map.h"
 
 class Pathfinder {
 public:

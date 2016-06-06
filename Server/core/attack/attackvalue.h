@@ -2,7 +2,7 @@
 #define ATTACKVALUE_H
 
 #include <vector>
-#include "value.h"
+#include "core/spec/value.h"
 
 class AttackValue : public Value
 {

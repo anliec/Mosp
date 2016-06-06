@@ -1,8 +1,8 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
-#include "wearable.h"
-#include "attack.h"
+#include "core/objects/wearable.h"
+#include "core/attack/attack.h"
 
 class Weapon : public Wearable
 {
