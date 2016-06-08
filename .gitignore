@@ -5,6 +5,8 @@
 *.pro.user.18
 *~
 
+*.idea
+
 #ignore bin directory
 bin/server/debug/*
 bin/server/release/*
