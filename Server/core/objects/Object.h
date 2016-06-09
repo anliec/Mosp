@@ -11,13 +11,18 @@
 #define OBJECT_WEAPON 111
 #define OBJECT_INTERACTIVE 2
 
+#include <QJsonObject>
+
 class Object {
 public:
-    Object(int objectType = OBJECT_UNKNOWN );
+    Object(int objectType = OBJECT_UNKNOWN);
 
     int getType() const;
 
+    virtual QJsonObject toJson() const;
+
 private:
+    int id; //if id=-1 object is not in database
     int type;
 };
 

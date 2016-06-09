@@ -17,79 +17,79 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     Pathfinder.cpp \
     Move.cpp \    
-    mapwidget.cpp \
-    mapscene.cpp \
-    range.cpp \
-    fight.cpp \
-    shootablerange.cpp \
 ##core
 #core/world
-    core/world/world.cpp \
     core/world/Coordinate.cpp \
     core/world/Tile.cpp \
     core/world/Map.cpp \
 #core/objects
-    core/objects/holdableobject.cpp \
-    core/objects/wearable.cpp \
-    core/objects/weapon.cpp \
     core/objects/Object.cpp \
 #core/living
-    core/living/nonplayercharacter.cpp \
-    core/living/fighter.cpp \
-    core/living/player.cpp \
-    core/living/monster.cpp \
     core/living/Living.cpp \
 #core/attack
-    core/attack/attack.cpp \
-    core/attack/effect.cpp \
-    core/attack/damage.cpp \
-    core/attack/attackvalue.cpp \
-    core/attack/attackrange.cpp \
 #core/spec
     core/spec/value.cpp \
-    core/spec/attributs.cpp \
 #core/objectManagement
-    core/objectManagement/objectdrop.cpp \
-    core/objectManagement/bag.cpp
+    Fight.cpp \
+    MapScene.cpp \
+    MapWidget.cpp \
+    Range.cpp \
+    ShootableRange.cpp \
+    core/attack/Attack.cpp \
+    core/attack/Damage.cpp \
+    core/attack/AttackRange.cpp \
+    core/attack/AttackValue.cpp \
+    core/attack/Effect.cpp \
+    core/living/Fighter.cpp \
+    core/living/Monster.cpp \
+    core/living/NonPlayerCharacter.cpp \
+    core/living/Player.cpp \
+    core/objectManagement/Bag.cpp \
+    core/objectManagement/ObjectDrop.cpp \
+    core/objects/HoldableObject.cpp \
+    core/objects/Weapon.cpp \
+    core/objects/Wearable.cpp \
+    core/spec/Attributs.cpp \
+    core/world/World.cpp
 
 HEADERS  += mainwindow.h \
     mainwindow.h \
     Pathfinder.h \
     Move.h \
-    mapwidget.h \
-    mapscene.h \
-    range.h \
-    fight.h \
-    shootablerange.h \
 ##core
 #core/world
-    core/world/world.h \
     core/world/Coordinate.h \
     core/world/Tile.h \
     core/world/Map.h \
 #core/objects
-    core/objects/holdableobject.h \
-    core/objects/wearable.h \
-    core/objects/weapon.h \
     core/objects/Object.h \
 #core/living
-    core/living/nonplayercharacter.h \
-    core/living/fighter.h \
-    core/living/player.h \
-    core/living/monster.h \
     core/living/Living.h \
 #core/attack
-    core/attack/attack.h \
-    core/attack/effect.h \
-    core/attack/damage.h \
-    core/attack/attackvalue.h \
-    core/attack/attackrange.h \
 #core/spec
     core/spec/value.h \
-    core/spec/attributs.h \
 #core/objectManagement
-    core/objectManagement/objectdrop.h \
-    core/objectManagement/bag.h
+    core/objects/Weapon.h \
+    core/objects/HoldableObject.h \
+    core/spec/Attributs.h \
+    core/world/World.h \
+    core/objectManagement/Bag.h \
+    core/objectManagement/ObjectDrop.h \
+    core/living/Fighter.h \
+    core/living/Monster.h \
+    core/living/NonPlayerCharacter.h \
+    core/living/Player.h \
+    core/attack/Attack.h \
+    core/attack/Damage.h \
+    core/attack/Effect.h \
+    Fight.h \
+    MapScene.h \
+    MapWidget.h \
+    Range.h \
+    ShootableRange.h \
+    core/attack/AttackRange.h \
+    core/attack/AttackValue.h \
+    core/objects/Wearable.h
 
 FORMS    += mainwindow.ui
 

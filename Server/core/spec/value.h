@@ -2,6 +2,7 @@
 #define VALUE_H
 
 #include <vector>
+#include <QJsonObject>
 
 class Value
 {
@@ -11,6 +12,8 @@ public:
     void setValue(int newValue);
 
     Value(int type=0,int value=0);
+
+    virtual QJsonObject toJson();
 
     Value operator *(double factor) const;
     Value & operator *=(double factor);

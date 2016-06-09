@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "mapwidget.h"
+#include "MapWidget.h"
 
 namespace Ui {
 class MainWindow;
