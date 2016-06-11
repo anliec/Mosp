@@ -20,6 +20,8 @@ public:
     Fighter(int level, Attributs attributs, std::vector<Attack> attacks, std::vector<Effect> effects,\
             int className =LIVING_FIGHTER,std::string livingName ="name unset", Coordinate livingCoordinate = Coordinate(-1,-1));
 
+    virtual QJsonObject toJson() const;
+
 protected:
     int level;
     Attributs attributs;

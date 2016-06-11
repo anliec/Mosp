@@ -12,10 +12,12 @@ public:
 
     std::vector<HoldableObject> & getItems();
     int getMoney() const;
+    int getId() const;
 
     bool addMoney(const int & moneyToAdd);
 
 protected:
+    int id;
     std::vector<HoldableObject> items;
     int money;
 };

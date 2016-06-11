@@ -22,3 +22,27 @@ Damage Fighter::useAttack(unsigned int attackNumber) const
     attributs.applyAttackFixBonnus(ret);
     return ret;
 }
+
+QJsonObject Fighter::toJson() const
+{
+    QJsonObject json;
+    json = Living::toJson();
+    json.insert("level",level);
+    json.insert("attributs",attributs);
+
+    QJsonArray attacksArray;
+    for(Attack a:attacks)
+    {
+        attacksArray.insert("attack",QJsonValue(a.toJson()));
+    }
+    json.insert("attacks",QJsonValue(attacksArray));
+
+    QJsonArray effectsArray;
+    for(Effect e:effects)
+    {
+        effectsArray.insert("effect",QJsonValue(e.toJson()));
+    }
+    json.insert("effects",QJsonValue(effectsArray));
+
+    return json;
+}

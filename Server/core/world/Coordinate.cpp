@@ -42,3 +42,11 @@ std::ostream & operator<<(std::ostream& Str, Coordinate const& coordinate) {
     Str << "(" << coordinate.getX() << ";" << coordinate.getY() << ")";
     return Str;
 }
+
+QJsonObject Coordinate::toJson() const
+{
+    QJsonObject json;
+    json.insert("x",coordX);
+    json.insert("y",coordY);
+    return json;
+}

@@ -6,6 +6,7 @@
 #define MOSP_LIVING_H
 
 #include <string>
+#include <QJsonObject>
 
 #include "core/world/Coordinate.h"
 
@@ -22,7 +23,10 @@ public:
     void setCoordinate(const Coordinate livingCoordinate);
     Coordinate getCoordinate() const;
 
+    virtual QJsonObject toJson() const;
+
 private:
+    int id;
     Coordinate coordinate;
     std::string name;
     int className;

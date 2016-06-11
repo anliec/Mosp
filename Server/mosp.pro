@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += websockets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -50,7 +51,9 @@ SOURCES += main.cpp\
     core/objects/Weapon.cpp \
     core/objects/Wearable.cpp \
     core/spec/Attributs.cpp \
-    core/world/World.cpp
+    core/world/World.cpp \
+    ClientHandler.cpp \
+    ConnectionHandler.cpp
 
 HEADERS  += mainwindow.h \
     mainwindow.h \
@@ -89,7 +92,9 @@ HEADERS  += mainwindow.h \
     ShootableRange.h \
     core/attack/AttackRange.h \
     core/attack/AttackValue.h \
-    core/objects/Wearable.h
+    core/objects/Wearable.h \
+    ClientHandler.h \
+    ConnectionHandler.h
 
 FORMS    += mainwindow.ui
 

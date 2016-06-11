@@ -20,6 +20,8 @@ public:
            int level, Attributs attributs, std::vector<Attack> attacks, std::vector<Effect> effects,\
            int className =LIVING_PLAYER,std::string livingName ="name unset", Coordinate livingCoordinate = Coordinate(-1,-1));
 
+    QJsonObject toJson() const;
+
 protected:
     Attributs baseAttributs;
     Bag bag;

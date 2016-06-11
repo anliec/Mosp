@@ -17,3 +17,21 @@ void Player::updateAttributs()
         attributs += clothes.at(i).getAttributs();
     }
 }
+
+QJsonObject Player::toJson() const
+{
+    QJsonObject json;
+    json = Fighter::toJson();
+    json.insert("baseAttributs",baseAttributs.toJson());
+    json.insert("bagId",bag.getId());
+    json.insert("activeWeapon",activeWeapon.toJson());
+
+    QJsonArray clothesArray;
+    for(Wearable w:clothes)
+    {
+        clothesArray.insert("attack",QJsonValue(w.toJson()));
+    }
+    json.insert("attacks",QJsonValue(clothesArray));
+
+    return json;
+}

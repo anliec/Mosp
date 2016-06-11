@@ -2,7 +2,7 @@
 
 Bag::Bag()
 {
-
+    id=-1;
 }
 
 std::vector<HoldableObject> & Bag::getItems()
@@ -13,6 +13,11 @@ std::vector<HoldableObject> & Bag::getItems()
 int Bag::getMoney() const
 {
     return money;
+}
+
+int Bag::getId() const
+{
+    return id;
 }
 
 bool Bag::addMoney(const int &moneyToAdd)

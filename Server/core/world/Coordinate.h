@@ -8,6 +8,7 @@
 #include <cmath>
 #include <iosfwd>
 #include <iostream>
+#include <QJsonObject>
 
 class Coordinate {
 
@@ -19,6 +20,8 @@ public:
 
     void setX(const int x);
     void setY(const int y);
+
+    QJsonObject toJson() const;
 
 private:
     int coordX;
