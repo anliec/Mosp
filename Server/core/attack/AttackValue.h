@@ -16,6 +16,8 @@ public:
     AttackValue(int value =0,int valueType =0,int attackType =0);
     AttackValue(Value value, int attackType=0);
 
+    QJsonObject toJson() const;
+
 protected:
     int attackType;
 };

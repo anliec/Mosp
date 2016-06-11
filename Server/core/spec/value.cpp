@@ -60,7 +60,7 @@ std::vector<Value> operator+(const std::vector<Value> vA,const std::vector<Value
     return ret;
 }
 
-QJsonObject Value::toJson()
+QJsonObject Value::toJson() const
 {
     QJsonObject json;
     json.insert("type",QJsonValue(type));

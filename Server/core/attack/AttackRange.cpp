@@ -16,3 +16,11 @@ AttackValue AttackRange::randomRangeValue() const
 {
     return AttackValue(Range::randomRangeValue(),attackType);
 }
+
+QJsonObject AttackRange::toJson() const
+{
+    QJsonObject json;
+    json = Range::toJson();
+    json.insert("attackType",attackType);
+    return json;
+}

@@ -1,20 +1,22 @@
 #include "ConnectionHandler.h"
 
-ConnectionHandler::ConnectionHandler(QObject *parent) : QObject(parent),
-    WebSocketServer(new QWebSocketServer(QStringLiteral("Mosp Server"),QWebSocketServer::NonSecureMode, this))
+ConnectionHandler::ConnectionHandler(quint16 port, QObject *parent) : QObject(parent),
+    webSocketServer(new QWebSocketServer(QStringLiteral("Mosp Server"),QWebSocketServer::NonSecureMode, this))
 {
-
+    webSocketServer->listen(QHostAddress::Any, port);
+    QObject::connect(webSocketServer,SIGNAL(newConnection()),this,SLOT(connectionRequest()));
 }
 
 ConnectionHandler::~ConnectionHandler()
 {
-    WebSocketServer->close;
+    webSocketServer->close();
+    qDeleteAll(clients.begin(),clients.end());
 }
 
 void ConnectionHandler::connectionRequest()
 {
     QThread * thread = new QThread(this);
-    QWebSocket * socket = WebSocketServer->nextPendingConnection();
+    QWebSocket * socket = webSocketServer->nextPendingConnection();
     ClientHandler * client = new ClientHandler(socket,this);
     client->moveToThread(thread);
     QObject::connect(thread,SIGNAL(finished()),client,SLOT(deleteLater()));

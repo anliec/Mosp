@@ -53,14 +53,14 @@ int Damage::getMaxIndex() const
 QJsonObject Damage::toJson() const
 {
     QJsonObject json;
-    QJsonArray valuesArray;
+    QJsonObject valuesArray;
     for(AttackValue a:values)
     {
         valuesArray.insert("attack",QJsonValue(a.toJson()));
     }
     json.insert("values",QJsonValue(valuesArray));
 
-    QJsonArray effectsArray;
+    QJsonObject effectsArray;
     for(Effect e:effects)
     {
         effectsArray.insert("effect",QJsonValue(e.toJson()));

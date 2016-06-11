@@ -1,6 +1,6 @@
 #include "ClientHandler.h"
 
-ClientHandler::ClientHandler(QWebSocket *webSocket, QObject *parent = 0):
+ClientHandler::ClientHandler(QWebSocket *webSocket, QObject *parent):
     QObject(parent), socket(webSocket)
 {
     QObject::connect(socket,SIGNAL(disconnected()),this,SLOT(clientDisconnected()));
@@ -20,12 +20,12 @@ void ClientHandler::clientDisconnected()
 
 void ClientHandler::messageReceived(QString message)
 {
-    switch(message)
+    if(message == "ping")
     {
-    case "ping":
         sendMessage("pong");
-        break;
-    default:
+    }
+    else
+    {
         sendMessage("ping");
     }
 }

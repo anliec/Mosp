@@ -27,8 +27,18 @@ Value Range::randomRangeValue() const
 {
     Value ret(type);
 
+    //TODO: use better generator and SEED !!!
     srand(time(NULL)); //intialise pseudo random genrator using currant time as seed
     ret.setValue( rand()%(maxRange-minRange+1)+minRange); //compute a random value between maxRange and minRange
 
     return ret;
+}
+
+QJsonObject Range::toJson() const
+{
+    QJsonObject json;
+    json.insert("minRange",minRange);
+    json.insert("maxRange",maxRange);
+    json.insert("type",type);
+    return json;
 }

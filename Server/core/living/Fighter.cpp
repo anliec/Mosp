@@ -28,16 +28,16 @@ QJsonObject Fighter::toJson() const
     QJsonObject json;
     json = Living::toJson();
     json.insert("level",level);
-    json.insert("attributs",attributs);
+    json.insert("attributs",attributs.toJson());
 
-    QJsonArray attacksArray;
+    QJsonObject attacksArray;
     for(Attack a:attacks)
     {
         attacksArray.insert("attack",QJsonValue(a.toJson()));
     }
     json.insert("attacks",QJsonValue(attacksArray));
 
-    QJsonArray effectsArray;
+    QJsonObject effectsArray;
     for(Effect e:effects)
     {
         effectsArray.insert("effect",QJsonValue(e.toJson()));

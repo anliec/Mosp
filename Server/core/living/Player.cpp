@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include <QJsonArray>
+
 Player::Player(Bag bag, std::vector<Wearable> clothes, Weapon activeWeapon,\
                int level, Attributs attributs, std::vector<Attack> attacks, std::vector<Effect> effects,\
                int className, std::string livingName, Coordinate livingCoordinate):\
@@ -29,7 +31,7 @@ QJsonObject Player::toJson() const
     QJsonArray clothesArray;
     for(Wearable w:clothes)
     {
-        clothesArray.insert("attack",QJsonValue(w.toJson()));
+        clothesArray.push_back(w.toJson());
     }
     json.insert("attacks",QJsonValue(clothesArray));
 

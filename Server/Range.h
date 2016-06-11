@@ -10,6 +10,8 @@ public:
     int getMinRange() const;
     int getType() const;
 
+    virtual QJsonObject toJson() const;
+
     Value randomRangeValue() const;
 
     Range(int type =0, int maxRange =0, int minRange =0);

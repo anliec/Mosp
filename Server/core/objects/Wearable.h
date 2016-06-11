@@ -11,6 +11,8 @@ public:
     Attributs getAttributs() const;
     int getClotheType() const;
 
+    QJsonObject toJson() const;
+
     Wearable(int weight, int clotheType, Attributs attributs, int objectType =OBJECT_WEARABLE);
 
 protected:

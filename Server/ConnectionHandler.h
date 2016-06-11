@@ -10,8 +10,7 @@ class ConnectionHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit ConnectionHandler(QObject *parent = 0);
-
+    explicit ConnectionHandler(quint16 port, QObject *parent = 0);
     ~ConnectionHandler();
 signals:
 
@@ -21,7 +20,7 @@ public slots:
 
 private:
     QList<QWebSocket*> clients;
-    QWebSocketServer *WebSocketServer;
+    QWebSocketServer *webSocketServer;
 };
 
 #endif // CONNECTIONHANDLER_H

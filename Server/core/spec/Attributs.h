@@ -54,7 +54,7 @@ public:
     //      (don't apply any ressistances or bonnus)
     ///Operators:
     Attributs operator=(const Attributs & other);
-    Attributs & operator+(const Attributs & other) const;
+    Attributs operator+(const Attributs & other) const;
     //algo: do the some of each values of the same type.
     Attributs operator+=(const Attributs & other);
     //algo: do the some of each values of the same type and
@@ -62,7 +62,7 @@ public:
     ///Constructors:
     Attributs();
 
-    QJsonObject toJson();
+    QJsonObject toJson() const;
 
 protected:
     int live;

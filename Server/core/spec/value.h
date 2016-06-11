@@ -13,7 +13,7 @@ public:
 
     Value(int type=0,int value=0);
 
-    virtual QJsonObject toJson();
+    virtual QJsonObject toJson() const;
 
     Value operator *(double factor) const;
     Value & operator *=(double factor);

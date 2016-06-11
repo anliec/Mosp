@@ -1,5 +1,7 @@
 #include "Attributs.h"
 
+#include <QJsonArray>
+
 Attributs::Attributs()
 {
     live=0;
@@ -129,7 +131,7 @@ Attributs Attributs::operator =(const Attributs & other)
     return *this;
 }
 
-Attributs & Attributs::operator +(const Attributs & other) const
+Attributs Attributs::operator +(const Attributs & other) const
 {
     Attributs ret;
     ret.setLive(live + other.live);
@@ -217,7 +219,7 @@ std::vector<Value> Attributs::getRelativeFightBonus() const
     return relativeFightBonus;
 }
 
-QJsonObject Attributs::toJson()
+QJsonObject Attributs::toJson() const
 {
     QJsonObject json;
     json.insert("live", QJsonValue(live));
@@ -229,35 +231,35 @@ QJsonObject Attributs::toJson()
     QJsonArray valuesArray;
     for(Value v:values)
     {
-        valuesArray.insert("value",QJsonValue(v.toJson()));
+        valuesArray.push_back(v.toJson());
     }
     json.insert("values",QJsonValue(valuesArray));
 
     QJsonArray fixResistancesArray;
     for(Value v:fixResistances)
     {
-        fixResistancesArray.insert("value",QJsonValue(v.toJson()));
+        fixResistancesArray.push_back(v.toJson());
     }
     json.insert("fixResistances",QJsonValue(fixResistancesArray));
 
     QJsonArray relativeResistancesArray;
     for(Value v:relativeResistances)
     {
-        relativeResistancesArray.insert("value",QJsonValue(v.toJson()));
+        relativeResistancesArray.push_back(v.toJson());
     }
     json.insert("relativeResistances",QJsonValue(relativeResistancesArray));
 
     QJsonArray fixFightBonusArray;
     for(Value v:fixFightBonus)
     {
-        fixFightBonusArray.insert("value",QJsonValue(v.toJson()));
+        fixFightBonusArray.push_back(v.toJson());
     }
     json.insert("fixFightBonus",QJsonValue(fixFightBonusArray));
 
     QJsonArray relativeFightBonusArray;
     for(Value v:relativeFightBonus)
     {
-        relativeFightBonusArray.insert("value",QJsonValue(v.toJson()));
+        relativeFightBonusArray.push_back(v.toJson());
     }
     json.insert("relativeFightBonus",QJsonValue(relativeFightBonusArray));
 }
