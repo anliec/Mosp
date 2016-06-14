@@ -18,15 +18,15 @@ ConnectionHandler::~ConnectionHandler()
 void ConnectionHandler::connectionRequest()
 {
     std::cout << "connection !" << std::endl;
-    //QThread * thread = new QThread(this);
+    QThread * thread = new QThread(this);
     QWebSocket * socket = webSocketServer->nextPendingConnection();
     ClientHandler * client = new ClientHandler(socket);
-    //client->moveToThread(thread);
-    //QObject::connect(thread,SIGNAL(finished()),client,SLOT(deleteLater()));
-    //QObject::connect(thread,SIGNAL(finished()),thread,SLOT(deleteLater()));
-    //QObject::connect(client,SIGNAL(socketDisconnected(QWebSocket*)),thread,SLOT(quit()));
+    client->moveToThread(thread);
+    QObject::connect(thread,SIGNAL(finished()),client,SLOT(deleteLater()));
+    QObject::connect(thread,SIGNAL(finished()),thread,SLOT(deleteLater()));
+    QObject::connect(client,SIGNAL(socketDisconnected(QWebSocket*)),thread,SLOT(quit()));
     QObject::connect(client,SIGNAL(socketDisconnected(QWebSocket*)),this,SLOT(disconnection(QWebSocket*)));
-
+    thread->start();
     clients << socket;
 }
 

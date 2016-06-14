@@ -34,7 +34,7 @@ void ClientHandler::messageReceived(QString message)
     }
     else
     {
-        sendMessage("ping");
+        sendMessage("{ \"type\" : \"text\",\"content\":\"ping\" }");
     }
 }
 
